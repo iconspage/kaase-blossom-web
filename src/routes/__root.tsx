@@ -81,10 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Palm Garden Hotel in Kaase, Kumasi — a tranquil garden retreat blending Ashanti hospitality with refined modern comfort. Book your stay." },
       { name: "author", content: "Palm Garden Hotel" },
       { property: "og:title", content: "Palm Garden Hotel — Kaase, Kumasi" },
-      { property: "og:description", content: "A tranquil garden retreat in the heart of Ashanti. Refined rooms, lush gardens, and warm Kumasi hospitality." },
+      { property: "og:description", content: "Palm Garden Hotel in Kaase, Kumasi — a tranquil garden retreat blending Ashanti hospitality with refined modern comfort. Book your stay." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Palm Garden Hotel — Kaase, Kumasi" },
+      { name: "twitter:description", content: "Palm Garden Hotel in Kaase, Kumasi — a tranquil garden retreat blending Ashanti hospitality with refined modern comfort. Book your stay." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/abcb1e98-90a7-48c4-8403-97c7b83018ef/id-preview-7f583486--880c0b09-04fa-4e4a-86b0-dbec612b7042.lovable.app-1781809308936.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/abcb1e98-90a7-48c4-8403-97c7b83018ef/id-preview-7f583486--880c0b09-04fa-4e4a-86b0-dbec612b7042.lovable.app-1781809308936.png" },
     ],
     links: [
       {
