@@ -1,10 +1,10 @@
-import palmPoolAerial from "@/assets/palm-pool-aerial.png.asset.json";
-import palmPoolCurve from "@/assets/palm-pool-curve.png.asset.json";
-import palmPoolDay from "@/assets/palm-pool-day.png.asset.json";
-import palmWaterFeatureNight from "@/assets/palm-water-feature-night.png.asset.json";
-import palmForestLounge from "@/assets/palm-forest-lounge.png.asset.json";
-import palmFlamingoBar from "@/assets/palm-flamingo-bar.png.asset.json";
-import palmPoolGuest from "@/assets/palm-pool-guest.png.asset.json";
+import palmPoolAerial from "@/assets/palm-pool-aerial.png";
+import palmPoolCurve from "@/assets/palm-pool-curve.png";
+import palmPoolDay from "@/assets/palm-pool-day.png";
+import palmWaterFeatureNight from "@/assets/palm-water-feature-night.png";
+import palmForestLounge from "@/assets/palm-forest-lounge.png";
+import palmFlamingoBar from "@/assets/palm-flamingo-bar.png";
+import palmPoolGuest from "@/assets/palm-pool-guest.png";
 
 export const hotelInfo = {
   name: "Palm Garden Hotel",
@@ -17,13 +17,13 @@ export const hotelInfo = {
 };
 
 export const siteImages = {
-  aerial: palmPoolAerial.url,
-  poolCurve: palmPoolCurve.url,
-  poolDay: palmPoolDay.url,
-  waterFeatureNight: palmWaterFeatureNight.url,
-  forestLounge: palmForestLounge.url,
-  flamingoBar: palmFlamingoBar.url,
-  poolGuest: palmPoolGuest.url,
+  aerial: palmPoolAerial,
+  poolCurve: palmPoolCurve,
+  poolDay: palmPoolDay,
+  waterFeatureNight: palmWaterFeatureNight,
+  forestLounge: palmForestLounge,
+  flamingoBar: palmFlamingoBar,
+  poolGuest: palmPoolGuest,
 };
 
 export const roomTypes = [
