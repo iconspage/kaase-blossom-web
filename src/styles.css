@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Cormorant Garamond", serif;
-  --font-sans: "Karla", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 
 /*
@@ -68,20 +68,20 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.97 0.01 95);
-  --foreground: oklch(0.26 0.03 150);
-  --card: oklch(0.985 0.008 95);
-  --card-foreground: oklch(0.26 0.03 150);
-  --popover: oklch(0.99 0.004 95);
-  --popover-foreground: oklch(0.26 0.03 150);
-  --primary: oklch(0.31 0.055 160);
-  --primary-foreground: oklch(0.98 0.01 95);
-  --secondary: oklch(0.91 0.018 85);
-  --secondary-foreground: oklch(0.28 0.045 155);
-  --muted: oklch(0.935 0.012 90);
-  --muted-foreground: oklch(0.5 0.02 140);
-  --accent: oklch(0.74 0.11 72);
-  --accent-foreground: oklch(0.23 0.03 150);
+  --background: oklch(0.985 0.008 95);
+  --foreground: oklch(0.22 0.03 150);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 150);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 150);
+  --primary: oklch(0.32 0.06 155);
+  --primary-foreground: oklch(0.97 0.02 90);
+  --secondary: oklch(0.94 0.02 90);
+  --secondary-foreground: oklch(0.28 0.05 155);
+  --muted: oklch(0.95 0.012 95);
+  --muted-foreground: oklch(0.48 0.02 150);
+  --accent: oklch(0.72 0.13 78);
+  --accent-foreground: oklch(0.2 0.03 150);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.88 0.015 90);
@@ -138,42 +138,12 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   * {
     border-color: var(--color-border);
   }
 
   body {
-    font-family: var(--font-sans);
     background-color: var(--color-background);
     color: var(--color-foreground);
-    background-image: linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--secondary) 35%, var(--background)) 0%,
-      var(--background) 30%,
-      color-mix(in oklab, var(--secondary) 58%, var(--background)) 100%
-    );
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-display);
-    font-weight: 500;
-  }
-
-  img {
-    display: block;
-  }
-
-  ::selection {
-    background: color-mix(in oklab, var(--accent) 65%, transparent);
-    color: var(--accent-foreground);
   }
 }
