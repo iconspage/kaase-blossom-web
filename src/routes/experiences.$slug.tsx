@@ -95,7 +95,7 @@ function ExperiencePage() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
-              {activity.highlights.map((highlight) => (
+              {activity.highlights.map((highlight: string) => (
                 <div key={highlight} className="border border-border/80 bg-card px-5 py-6">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-accent">
                     <Check className="h-5 w-5" />
