@@ -1,15 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { MapPin, Phone, Star, Wifi, Utensils, Waves, Wind, Car, Coffee, ChevronRight, Menu, X } from "lucide-react";
+import { MapPin, Phone, Star, Wifi, Utensils, Waves, Wind, Car, Coffee, ChevronRight, Menu, X, Sailboat, Fish, CalendarDays, UtensilsCrossed } from "lucide-react";
+import img2 from "@/assets/image-2.png.asset.json";
+import img3 from "@/assets/image-3.png.asset.json";
+import img4 from "@/assets/image-4.png.asset.json";
+import img5 from "@/assets/image-5.png.asset.json";
+import img6 from "@/assets/image-6.png.asset.json";
+import img7 from "@/assets/image-7.png.asset.json";
+import img8 from "@/assets/image-8.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Palm Garden Hotel — Kaase, Kumasi" },
-      { name: "description", content: "A tranquil garden retreat in Kaase, Kumasi. Refined rooms, lush gardens, and Ashanti hospitality." },
-      { property: "og:title", content: "Palm Garden Hotel — Kaase, Kumasi" },
-      { property: "og:description", content: "Book your stay at Palm Garden Hotel — a refined garden retreat in the heart of Ashanti." },
+      { title: "Palm Garden Resort — Kaase, Kumasi" },
+      { name: "description", content: "A tranquil garden resort in Kaase, Kumasi. Pool, boat rides, fish feeding, café, restaurant & event spaces." },
+      { property: "og:title", content: "Palm Garden Resort — Kaase, Kumasi" },
+      { property: "og:description", content: "Book your stay at Palm Garden Resort — gardens, pool, boat rides, dining & events in Ashanti." },
       { property: "og:image", content: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1600&q=80" },
     ],
   }),
@@ -18,6 +25,8 @@ export const Route = createFileRoute("/")({
 
 const HERO = "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=2000&q=85";
 const LOGO_MARK = "Palm Garden";
+const PHONE_TEL = "tel:+233539795100";
+const PHONE_DISPLAY = "053 979 5100";
 
 const rooms = [
   {
@@ -44,14 +53,65 @@ const rooms = [
 ];
 
 const gallery = [
-  "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80",
-  "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1200&q=80",
-  "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80",
-  "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1200&q=80",
-  "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80",
-  "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1200&q=80",
-  "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=1200&q=80",
-  "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=1200&q=80",
+  img2.url,
+  img4.url,
+  img5.url,
+  img6.url,
+  img7.url,
+  img8.url,
+  img3.url,
+  img2.url,
+];
+
+const activities = [
+  {
+    icon: Sailboat,
+    name: "Boat Riding",
+    price: "₵50",
+    unit: "per person",
+    desc: "Glide across our private pond on a hand-crafted paddle boat — perfect for couples and families.",
+    img: img5.url,
+  },
+  {
+    icon: Fish,
+    name: "Fish Feeding",
+    price: "₵20",
+    unit: "per visit",
+    desc: "Feed our resident koi and tilapia from the wooden bridges through the water garden.",
+    img: img5.url,
+  },
+  {
+    icon: Coffee,
+    name: "Café Shop",
+    price: "from ₵25",
+    unit: "hot drinks & pastries",
+    desc: "Specialty coffee, fresh juices and pastries served poolside throughout the day.",
+    img: img8.url,
+  },
+  {
+    icon: UtensilsCrossed,
+    name: "Flamingo Restaurant",
+    price: "from ₵80",
+    unit: "à la carte",
+    desc: "Live-grill restaurant and bar serving Ghanaian classics and continental favourites under the lights.",
+    img: img7.url,
+  },
+  {
+    icon: CalendarDays,
+    name: "Event Room",
+    price: "from ₵2,500",
+    unit: "per event",
+    desc: "Outdoor garden pavilion for weddings, birthdays and corporate events — up to 150 guests.",
+    img: img6.url,
+  },
+  {
+    icon: Waves,
+    name: "Pool Access",
+    price: "₵40",
+    unit: "day pass",
+    desc: "Spend the day at our palm-shaded swimming pool with loungers, towels and bar service.",
+    img: img4.url,
+  },
 ];
 
 const amenities = [
@@ -239,8 +299,8 @@ function Index() {
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=2000&q=85"
-          alt="Pool"
+          src={img2.url}
+          alt="Palm Garden pool from above"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/30" />
