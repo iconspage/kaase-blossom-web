@@ -678,7 +678,6 @@ function BookingSection() {
                 Or call now · {PHONE_DISPLAY}
               </a>
             </div>
-            </div>
           </motion.form>
         )}
       </div>
