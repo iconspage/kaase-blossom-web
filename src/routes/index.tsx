@@ -1,15 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { MapPin, Phone, Star, Wifi, Utensils, Waves, Wind, Car, Coffee, ChevronRight, Menu, X } from "lucide-react";
+import { MapPin, Phone, Star, Wifi, Utensils, Waves, Wind, Car, Coffee, ChevronRight, Menu, X, Sailboat, Fish, CalendarDays, UtensilsCrossed } from "lucide-react";
+import img2 from "@/assets/image-2.png.asset.json";
+import img3 from "@/assets/image-3.png.asset.json";
+import img4 from "@/assets/image-4.png.asset.json";
+import img5 from "@/assets/image-5.png.asset.json";
+import img6 from "@/assets/image-6.png.asset.json";
+import img7 from "@/assets/image-7.png.asset.json";
+import img8 from "@/assets/image-8.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Palm Garden Hotel — Kaase, Kumasi" },
-      { name: "description", content: "A tranquil garden retreat in Kaase, Kumasi. Refined rooms, lush gardens, and Ashanti hospitality." },
-      { property: "og:title", content: "Palm Garden Hotel — Kaase, Kumasi" },
-      { property: "og:description", content: "Book your stay at Palm Garden Hotel — a refined garden retreat in the heart of Ashanti." },
+      { title: "Palm Garden Resort — Kaase, Kumasi" },
+      { name: "description", content: "A tranquil garden resort in Kaase, Kumasi. Pool, boat rides, fish feeding, café, restaurant & event spaces." },
+      { property: "og:title", content: "Palm Garden Resort — Kaase, Kumasi" },
+      { property: "og:description", content: "Book your stay at Palm Garden Resort — gardens, pool, boat rides, dining & events in Ashanti." },
       { property: "og:image", content: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1600&q=80" },
     ],
   }),
@@ -18,6 +25,8 @@ export const Route = createFileRoute("/")({
 
 const HERO = "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=2000&q=85";
 const LOGO_MARK = "Palm Garden";
+const PHONE_TEL = "tel:+233539795100";
+const PHONE_DISPLAY = "053 979 5100";
 
 const rooms = [
   {
@@ -44,14 +53,65 @@ const rooms = [
 ];
 
 const gallery = [
-  "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80",
-  "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1200&q=80",
-  "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80",
-  "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1200&q=80",
-  "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80",
-  "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1200&q=80",
-  "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=1200&q=80",
-  "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=1200&q=80",
+  img2.url,
+  img4.url,
+  img5.url,
+  img6.url,
+  img7.url,
+  img8.url,
+  img3.url,
+  img2.url,
+];
+
+const activities = [
+  {
+    icon: Sailboat,
+    name: "Boat Riding",
+    price: "₵50",
+    unit: "per person",
+    desc: "Glide across our private pond on a hand-crafted paddle boat — perfect for couples and families.",
+    img: img5.url,
+  },
+  {
+    icon: Fish,
+    name: "Fish Feeding",
+    price: "₵20",
+    unit: "per visit",
+    desc: "Feed our resident koi and tilapia from the wooden bridges through the water garden.",
+    img: img5.url,
+  },
+  {
+    icon: Coffee,
+    name: "Café Shop",
+    price: "from ₵25",
+    unit: "hot drinks & pastries",
+    desc: "Specialty coffee, fresh juices and pastries served poolside throughout the day.",
+    img: img8.url,
+  },
+  {
+    icon: UtensilsCrossed,
+    name: "Flamingo Restaurant",
+    price: "from ₵80",
+    unit: "à la carte",
+    desc: "Live-grill restaurant and bar serving Ghanaian classics and continental favourites under the lights.",
+    img: img7.url,
+  },
+  {
+    icon: CalendarDays,
+    name: "Event Room",
+    price: "from ₵2,500",
+    unit: "per event",
+    desc: "Outdoor garden pavilion for weddings, birthdays and corporate events — up to 150 guests.",
+    img: img6.url,
+  },
+  {
+    icon: Waves,
+    name: "Pool Access",
+    price: "₵40",
+    unit: "day pass",
+    desc: "Spend the day at our palm-shaded swimming pool with loungers, towels and bar service.",
+    img: img4.url,
+  },
 ];
 
 const amenities = [
@@ -91,16 +151,16 @@ function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#top" className={`font-display text-2xl tracking-wide ${navSolid ? "text-foreground" : "text-white"}`}>
-            {LOGO_MARK}
+            {LOGO_MARK} <span className="text-accent text-sm tracking-[0.3em] uppercase">Resort</span>
           </a>
           <div className={`hidden md:flex items-center gap-10 text-sm tracking-wide ${navSolid ? "text-foreground" : "text-white/90"}`}>
-            {["Rooms", "Amenities", "Gallery", "Contact"].map((l) => (
+            {["Rooms", "Activities", "Gallery", "Contact"].map((l) => (
               <a key={l} href={`#${l.toLowerCase()}`} className="hover:text-accent transition-colors">
                 {l}
               </a>
             ))}
             <a
-              href="#book"
+              href={PHONE_TEL}
               className="bg-accent text-accent-foreground px-5 py-2.5 rounded-full hover:bg-accent/90 transition tracking-wider text-xs uppercase font-medium"
             >
               Book Now
@@ -116,11 +176,14 @@ function Index() {
         </div>
         {menuOpen && (
           <div className="md:hidden bg-background border-t border-border px-6 py-6 flex flex-col gap-4 text-sm">
-            {["Rooms", "Amenities", "Gallery", "Contact", "Book"].map((l) => (
+            {["Rooms", "Activities", "Gallery", "Contact"].map((l) => (
               <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
                 {l}
               </a>
             ))}
+            <a href={PHONE_TEL} onClick={() => setMenuOpen(false)} className="text-accent font-medium">
+              Book Now · {PHONE_DISPLAY}
+            </a>
           </div>
         )}
       </nav>
@@ -239,8 +302,8 @@ function Index() {
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=2000&q=85"
-          alt="Pool"
+          src={img2.url}
+          alt="Palm Garden pool from above"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/30" />
@@ -311,8 +374,8 @@ function Index() {
                     <li key={f}>· {f}</li>
                   ))}
                 </ul>
-                <a href="#book" className="inline-flex items-center gap-2 text-sm tracking-wider uppercase text-primary group-hover:text-accent transition">
-                  Reserve <ChevronRight className="w-4 h-4" />
+                <a href={PHONE_TEL} className="inline-flex items-center gap-2 text-sm tracking-wider uppercase text-primary group-hover:text-accent transition">
+                  Book Now <ChevronRight className="w-4 h-4" />
                 </a>
               </motion.article>
             ))}
@@ -351,6 +414,72 @@ function Index() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ACTIVITIES */}
+      <section id="activities" className="py-32 px-6 bg-secondary">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
+          >
+            <div>
+              <p className="uppercase tracking-[0.3em] text-xs text-accent mb-4">Activities & Dining</p>
+              <h2 className="font-display text-5xl md:text-6xl text-primary leading-[1.05]">
+                Days well spent.
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-md">
+              From morning paddles to candlelit dinners — reasonably priced for guests and visitors alike.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {activities.map((a, i) => (
+              <motion.article
+                key={a.name}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: (i % 3) * 0.12, duration: 0.8 }}
+                className="group bg-background rounded-sm overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500"
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
+                  <img
+                    src={a.img}
+                    alt={a.name}
+                    className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-7">
+                  <div className="flex items-center gap-3 mb-3 text-accent">
+                    <a.icon className="w-5 h-5" strokeWidth={1.5} />
+                    <span className="text-xs uppercase tracking-[0.25em]">{a.unit}</span>
+                  </div>
+                  <div className="flex items-baseline justify-between mb-3">
+                    <h3 className="font-display text-2xl text-primary">{a.name}</h3>
+                    <span className="text-accent font-medium">{a.price}</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{a.desc}</p>
+                  <a
+                    href={PHONE_TEL}
+                    className="inline-flex items-center justify-center w-full bg-primary text-primary-foreground py-3 rounded-full text-xs tracking-widest uppercase font-medium hover:bg-accent hover:text-accent-foreground transition"
+                  >
+                    Book Now · Call
+                  </a>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          <p className="text-center text-xs uppercase tracking-[0.3em] text-muted-foreground mt-12">
+            All bookings via <a href={PHONE_TEL} className="text-accent">{PHONE_DISPLAY}</a>
+          </p>
         </div>
       </section>
 
@@ -451,9 +580,9 @@ function Index() {
       {/* FOOTER */}
       <footer className="bg-primary text-primary-foreground py-16 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="font-display text-3xl">Palm Garden Hotel</p>
+          <p className="font-display text-3xl">Palm Garden Resort</p>
           <p className="text-sm text-primary-foreground/60">
-            © {new Date().getFullYear()} Palm Garden Hotel, Kaase · All rights reserved.
+            © {new Date().getFullYear()} Palm Garden Resort, Kaase · All rights reserved.
           </p>
         </div>
       </footer>
@@ -481,9 +610,7 @@ function BookingSection() {
     <section id="book" className="relative py-32 px-6 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=2000&q=85)`,
-        }}
+        style={{ backgroundImage: `url(${img4.url})` }}
       />
       <div className="absolute inset-0 bg-primary/85" />
       <div className="relative max-w-4xl mx-auto text-primary-foreground">
@@ -537,13 +664,19 @@ function BookingSection() {
               onChange={(v) => setForm({ ...form, room: v })}
               options={rooms.map((r) => r.name)}
             />
-            <div className="md:col-span-2 mt-4">
+            <div className="md:col-span-2 mt-4 space-y-3">
               <button
                 type="submit"
                 className="w-full bg-accent text-accent-foreground py-4 rounded-full uppercase tracking-widest text-sm font-medium hover:bg-accent/90 transition"
               >
                 Request Reservation
               </button>
+              <a
+                href={PHONE_TEL}
+                className="block text-center w-full border border-primary-foreground/30 text-foreground py-4 rounded-full uppercase tracking-widest text-sm font-medium hover:bg-primary hover:text-primary-foreground transition"
+              >
+                Or call now · {PHONE_DISPLAY}
+              </a>
             </div>
           </motion.form>
         )}
