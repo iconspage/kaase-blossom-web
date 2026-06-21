@@ -151,16 +151,16 @@ function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#top" className={`font-display text-2xl tracking-wide ${navSolid ? "text-foreground" : "text-white"}`}>
-            {LOGO_MARK}
+            {LOGO_MARK} <span className="text-accent text-sm tracking-[0.3em] uppercase">Resort</span>
           </a>
           <div className={`hidden md:flex items-center gap-10 text-sm tracking-wide ${navSolid ? "text-foreground" : "text-white/90"}`}>
-            {["Rooms", "Amenities", "Gallery", "Contact"].map((l) => (
+            {["Rooms", "Activities", "Gallery", "Contact"].map((l) => (
               <a key={l} href={`#${l.toLowerCase()}`} className="hover:text-accent transition-colors">
                 {l}
               </a>
             ))}
             <a
-              href="#book"
+              href={PHONE_TEL}
               className="bg-accent text-accent-foreground px-5 py-2.5 rounded-full hover:bg-accent/90 transition tracking-wider text-xs uppercase font-medium"
             >
               Book Now
@@ -176,11 +176,14 @@ function Index() {
         </div>
         {menuOpen && (
           <div className="md:hidden bg-background border-t border-border px-6 py-6 flex flex-col gap-4 text-sm">
-            {["Rooms", "Amenities", "Gallery", "Contact", "Book"].map((l) => (
+            {["Rooms", "Activities", "Gallery", "Contact"].map((l) => (
               <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
                 {l}
               </a>
             ))}
+            <a href={PHONE_TEL} onClick={() => setMenuOpen(false)} className="text-accent font-medium">
+              Book Now · {PHONE_DISPLAY}
+            </a>
           </div>
         )}
       </nav>
