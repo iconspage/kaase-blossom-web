@@ -580,9 +580,9 @@ function Index() {
       {/* FOOTER */}
       <footer className="bg-primary text-primary-foreground py-16 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="font-display text-3xl">Palm Garden Hotel</p>
+          <p className="font-display text-3xl">Palm Garden Resort</p>
           <p className="text-sm text-primary-foreground/60">
-            © {new Date().getFullYear()} Palm Garden Hotel, Kaase · All rights reserved.
+            © {new Date().getFullYear()} Palm Garden Resort, Kaase · All rights reserved.
           </p>
         </div>
       </footer>
@@ -610,9 +610,7 @@ function BookingSection() {
     <section id="book" className="relative py-32 px-6 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=2000&q=85)`,
-        }}
+        style={{ backgroundImage: `url(${img4.url})` }}
       />
       <div className="absolute inset-0 bg-primary/85" />
       <div className="relative max-w-4xl mx-auto text-primary-foreground">
@@ -666,13 +664,20 @@ function BookingSection() {
               onChange={(v) => setForm({ ...form, room: v })}
               options={rooms.map((r) => r.name)}
             />
-            <div className="md:col-span-2 mt-4">
+            <div className="md:col-span-2 mt-4 space-y-3">
               <button
                 type="submit"
                 className="w-full bg-accent text-accent-foreground py-4 rounded-full uppercase tracking-widest text-sm font-medium hover:bg-accent/90 transition"
               >
                 Request Reservation
               </button>
+              <a
+                href={PHONE_TEL}
+                className="block text-center w-full border border-primary-foreground/30 text-foreground py-4 rounded-full uppercase tracking-widest text-sm font-medium hover:bg-primary hover:text-primary-foreground transition"
+              >
+                Or call now · {PHONE_DISPLAY}
+              </a>
+            </div>
             </div>
           </motion.form>
         )}
