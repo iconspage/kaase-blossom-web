@@ -374,8 +374,8 @@ function Index() {
                     <li key={f}>· {f}</li>
                   ))}
                 </ul>
-                <a href="#book" className="inline-flex items-center gap-2 text-sm tracking-wider uppercase text-primary group-hover:text-accent transition">
-                  Reserve <ChevronRight className="w-4 h-4" />
+                <a href={PHONE_TEL} className="inline-flex items-center gap-2 text-sm tracking-wider uppercase text-primary group-hover:text-accent transition">
+                  Book Now <ChevronRight className="w-4 h-4" />
                 </a>
               </motion.article>
             ))}
