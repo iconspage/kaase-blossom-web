@@ -417,6 +417,72 @@ function Index() {
         </div>
       </section>
 
+      {/* ACTIVITIES */}
+      <section id="activities" className="py-32 px-6 bg-secondary">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
+          >
+            <div>
+              <p className="uppercase tracking-[0.3em] text-xs text-accent mb-4">Activities & Dining</p>
+              <h2 className="font-display text-5xl md:text-6xl text-primary leading-[1.05]">
+                Days well spent.
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-md">
+              From morning paddles to candlelit dinners — reasonably priced for guests and visitors alike.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {activities.map((a, i) => (
+              <motion.article
+                key={a.name}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: (i % 3) * 0.12, duration: 0.8 }}
+                className="group bg-background rounded-sm overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500"
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
+                  <img
+                    src={a.img}
+                    alt={a.name}
+                    className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-7">
+                  <div className="flex items-center gap-3 mb-3 text-accent">
+                    <a.icon className="w-5 h-5" strokeWidth={1.5} />
+                    <span className="text-xs uppercase tracking-[0.25em]">{a.unit}</span>
+                  </div>
+                  <div className="flex items-baseline justify-between mb-3">
+                    <h3 className="font-display text-2xl text-primary">{a.name}</h3>
+                    <span className="text-accent font-medium">{a.price}</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{a.desc}</p>
+                  <a
+                    href={PHONE_TEL}
+                    className="inline-flex items-center justify-center w-full bg-primary text-primary-foreground py-3 rounded-full text-xs tracking-widest uppercase font-medium hover:bg-accent hover:text-accent-foreground transition"
+                  >
+                    Book Now · Call
+                  </a>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          <p className="text-center text-xs uppercase tracking-[0.3em] text-muted-foreground mt-12">
+            All bookings via <a href={PHONE_TEL} className="text-accent">{PHONE_DISPLAY}</a>
+          </p>
+        </div>
+      </section>
+
       {/* GALLERY */}
       <section id="gallery" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
