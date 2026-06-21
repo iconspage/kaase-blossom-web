@@ -9,6 +9,18 @@ import img5 from "@/assets/image-5.png.asset.json";
 import img6 from "@/assets/image-6.png.asset.json";
 import img7 from "@/assets/image-7.png.asset.json";
 import img8 from "@/assets/image-8.png.asset.json";
+import { Link } from "@tanstack/react-router";
+import { useSiteData } from "@/lib/site-data";
+
+const ICONS = {
+  Sailboat,
+  Fish,
+  Coffee,
+  UtensilsCrossed,
+  CalendarDays,
+  Waves,
+  Wind,
+} as const;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,57 +75,6 @@ const gallery = [
   img2.url,
 ];
 
-const activities = [
-  {
-    icon: Sailboat,
-    name: "Boat Riding",
-    price: "₵50",
-    unit: "per person",
-    desc: "Glide across our private pond on a hand-crafted paddle boat — perfect for couples and families.",
-    img: img5.url,
-  },
-  {
-    icon: Fish,
-    name: "Fish Feeding",
-    price: "₵20",
-    unit: "per visit",
-    desc: "Feed our resident koi and tilapia from the wooden bridges through the water garden.",
-    img: img5.url,
-  },
-  {
-    icon: Coffee,
-    name: "Café Shop",
-    price: "from ₵25",
-    unit: "hot drinks & pastries",
-    desc: "Specialty coffee, fresh juices and pastries served poolside throughout the day.",
-    img: img8.url,
-  },
-  {
-    icon: UtensilsCrossed,
-    name: "Flamingo Restaurant",
-    price: "from ₵80",
-    unit: "à la carte",
-    desc: "Live-grill restaurant and bar serving Ghanaian classics and continental favourites under the lights.",
-    img: img7.url,
-  },
-  {
-    icon: CalendarDays,
-    name: "Event Room",
-    price: "from ₵2,500",
-    unit: "per event",
-    desc: "Outdoor garden pavilion for weddings, birthdays and corporate events — up to 150 guests.",
-    img: img6.url,
-  },
-  {
-    icon: Waves,
-    name: "Pool Access",
-    price: "₵40",
-    unit: "day pass",
-    desc: "Spend the day at our palm-shaded swimming pool with loungers, towels and bar service.",
-    img: img4.url,
-  },
-];
-
 const amenities = [
   { icon: Waves, label: "Outdoor Pool" },
   { icon: Utensils, label: "Fine Dining" },
@@ -129,6 +90,9 @@ const fadeUp = {
 };
 
 function Index() {
+  const siteData = useSiteData();
+  const rooms = siteData.rooms;
+  const activities = siteData.activities;
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 800], [0, 200]);
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0.3]);
@@ -441,7 +405,7 @@ function Index() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {activities.map((a, i) => (
               <motion.article
-                key={a.name}
+                key={a.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
@@ -458,7 +422,10 @@ function Index() {
                 </div>
                 <div className="p-7">
                   <div className="flex items-center gap-3 mb-3 text-accent">
-                    <a.icon className="w-5 h-5" strokeWidth={1.5} />
+                    {(() => {
+                      const Icon = ICONS[a.iconKey] ?? Sailboat;
+                      return <Icon className="w-5 h-5" strokeWidth={1.5} />;
+                    })()}
                     <span className="text-xs uppercase tracking-[0.25em]">{a.unit}</span>
                   </div>
                   <div className="flex items-baseline justify-between mb-3">
@@ -524,7 +491,7 @@ function Index() {
       </section>
 
       {/* BOOKING */}
-      <BookingSection />
+      <BookingSection rooms={rooms} />
 
       {/* CONTACT */}
       <section id="contact" className="py-32 px-6 bg-secondary">
@@ -583,6 +550,14 @@ function Index() {
           <p className="font-display text-3xl">Palm Garden Resort</p>
           <p className="text-sm text-primary-foreground/60">
             © {new Date().getFullYear()} Palm Garden Resort, Kaase · All rights reserved.
+            <Link
+              to="/admin"
+              aria-label="Admin"
+              className="ml-1 text-primary-foreground/30 hover:text-accent transition-colors select-none"
+              title="Admin"
+            >
+              .
+            </Link>
           </p>
         </div>
       </footer>
@@ -590,14 +565,14 @@ function Index() {
   );
 }
 
-function BookingSection() {
+function BookingSection({ rooms }: { rooms: { name: string }[] }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
     checkin: "",
     checkout: "",
     guests: "2",
-    room: "Garden Deluxe",
+    room: rooms[0]?.name ?? "Garden Deluxe",
   });
   const [submitted, setSubmitted] = useState(false);
 
